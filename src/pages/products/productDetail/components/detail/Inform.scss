@@ -1,0 +1,60 @@
+@import '../../../../../styles/variables.scss';
+
+.inform {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 6.25rem 3.75rem 6.25rem;
+  padding-bottom: 3.75rem;
+
+  .informHeader {
+    padding: 6.25rem 1.25rem 2.5rem 1.25rem;
+    color: $textGray;
+
+    .headerTitle {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .headerSubTitle {
+      margin: 1.12rem 0 0.93rem 0;
+      font-size: 1.06rem;
+      font-weight: 700;
+      line-height: 1.56rem;
+    }
+  }
+
+  .informBar {
+    display: inline-block;
+    padding: 0.62rem 0.31rem 1.25rem 1.25rem;
+    border-bottom: 0.12rem solid black;
+    font-size: 1.25rem;
+  }
+
+  .informTableContainer {
+    padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+    border: 1px solid #e5e5e5;
+
+    table {
+      tr {
+        th {
+          width: 11.12rem;
+          font-size: 1.25rem;
+        }
+
+        td {
+          padding: 0.93rem 0;
+          line-height: 1.5rem;
+          color: #727272;
+          font-size: 1.06rem;
+
+          li {
+            margin-top: 0.93rem;
+            margin-left: 0.62rem;
+            line-height: 1.5rem;
+            list-style-type: disc;
+          }
+        }
+      }
+    }
+  }
+}

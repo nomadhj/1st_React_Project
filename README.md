@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# React 1차 프로젝트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 프로젝트 결과
+  - 프로젝트 배포 링크 : https://dulcet-clafoutis-090333.netlify.app/
+## [리팩토링 기록 (click)](REFACTORING.md)
+  
+  **[변경사항]**
+  ```
+  - 기존의 백엔드 데이터를 포함한 정식 배포 버전이 아닌 netlify를 통한 클라이언트 코드 배포
+  - 데이터 베이스는 Firebase를 활용
+    - 로그인/회원가입은 Firebase Authentication REST API를 활용 -> 해당 API를 통해 토큰이 발행되므로 회원가입 및 로그인 기능 확인 가능
+  - 실제 프로젝트에서 구현했던 기능에서 일부 삭제 되었음
+    - 개인 공부 및 기록 목적이므로 직접 구현한 로그인/회원가입 및 장바구니 기능 위주 프로젝트 구성
+    - 리팩토링 이전 프로젝트 구현 결과 및 코드는 아래의 시연 영상 및 github 페이지 참고
+  ```
+  **[추가로 개선 할 부분]**
+   - ~~cart context를 활용, 장바구니 아이콘에 실시간으로 변하는 badge기능 추가해 볼 것~~
+   - 모든 컴포넌트에 구현 된 fetch 함수들을 커스텀 훅을 활용하여 유지보수성 높일 것
+   - 장바구니 아이템 체크박스 체크/해제 시 서버와 통신으로 인해 딜레이가 발생하는데 해당 부분 개선할 방법 없는지 고민
+  
+  ***
+# 기존 프로젝트 설명 (리팩토링 이전)
 
-## Available Scripts
+  **[기존 프로젝트 구현결과 영상 및 github]**
+  - 시연 영상: https://www.youtube.com/watch?v=hi08z17A2s0
+  - github(배포 X; 코드만 확인 가능) : https://github.com/wecode-bootcamp-korea/33-1st-Wesulloc-frontend
 
-In the project directory, you can run:
+## 개요
 
-### `npm start`
+- 오설록 웹페이지를 모티브로 한 상업용 페이지 구현 프로젝트
+- 기간 : '22.05.23 ~ 06.03 (2주)
+- 인원 : 6명 (프론트엔드 4명, 백엔드 2명)
+- 기술스택 및 협업 tool
+```
+  - React
+  - JavaScript
+  - HTML5/CSS3(SCSS)
+  - 협업 툴 : Trello, slack, Git
+```
+- 구현페이지 (담당 페이지는 *로 표기)
+```
+  - 메인페이지
+  - 상품 페이지
+  - 상품 상세 및 리뷰
+  - *장바구니
+  - *로그인/회원가입
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 구현 기능 설명
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**담당 구현 부분인 회원가입/로그인 및 장바구니 관련 기능만 설명**  
 
-### `npm test`
+* 회원가입 & 로그인, 장바구니
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - 회원가입 & 로그인
 
-### `npm run build`
+  ![signup](https://user-images.githubusercontent.com/101119985/172145295-e9c5fdb9-fc36-416b-8921-42e2bc79ba92.gif)
+   ```
+    - 회원가입 페이지 이용약관 및 유저 정보 입력 form 구현
+    - 이용약관 필수 동의 체크 및 유저정보 입력에 따른 버튼 활성화 기능 구현
+      - 필수 동의 체크 및 유저 정보 입력 중 누락된 부분이 있을 경우 버튼 활성화 되지 않음
+      - 약관 중 선택 사항의 경우 체크하지 않더라도 회원 가입 가능
+    - 정규 표현식을 이용한 유저 정보 유효성 검증 기능 추가
+    - 회원 가입 버튼 클릭 시 입력 정보 및 이용 약관 별 체크여부 서버로 전달
+    - 리액트 컨텍스트 API를 사용하여 인증 정보를 관리
+      - 토큰, 로그인 여부, 로그인 기능, 로그아웃 기능을 하나의 context로 관리하여, 필요한 컴포넌트에서 해당 context를 import하여 사용할 수 있도록 구현
+      - 해당 context에서 사용자의 로그인 여부를 지속적으로 확인하도록 하여 페이지 이동이나 새로고침시에도 로그인 상태를 유지하도록 함
+      - 라우터에서 로그인 여부에 따른 접근이 가능한 컴포넌트 지정할 수 있도록 context 활용
+    ```
+    ***
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - 장바구니
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  ![cart](https://user-images.githubusercontent.com/101119985/172145304-3fc47035-9502-4edd-b8f6-0ab19bdfd89b.gif)
+    ```
+    - 서버를 통해 상세페이지로부터 전달 받은 장바구니 아이템 리스트를 불러옴
+      - try-catch문을 활용해 에러를 처리하기 위한 로직 추가
+    - 체크 박스를 통해 원하는 아이템을 선택할 수 있으며 선택 된 아이템에 한해 결제 예상 금액을 실시간으로 반영하여 보여줌
+    - 선택 삭제를 통한 아이템 삭제 기능을 구현하였으며 해당 데이터는 DELETE 방식으로 백엔드와 통신
+      - DELETE 요청 이후 response의 응답에 따른 분기 처리로 업데이트 된 아이템 리스트를 서버로부터 불러옴
+    - 수량 변경을 통한 아이템 수정 기능을 구현하였으며 해당 데이터는 PATCH 방식으로 백엔드와 통신
+      - PATCH 요청 이후 response의 응답에 따른 분기 처리로 업데이트 된 아이템 리스트를 서버로부터 불러옴
+    - 주문 기능을 개별 상품 바로구매, 선택 상품 주문, 전체 상품 주문으로 세분화 하여 각 기능에 따라 POST 방식을 활용, 
+    서버로 전달 되는 아이템 리스트 역시 달라지도록 구현
+    - 장바구니 기능 구현에 필요한 함수 및 state는 별도의 context로 관리할 수 있도록 리팩토링
+      - 기존의 복잡한 props와 함수 전달 구조를 context 적용을 통해 단순화
+      - 메인 컴포넌트인 Cart 컴포넌트는 렌더링에 집중하도록 구현함으로써, 유지보수성 및 가독성을 높임
+      - 단순히 context를 import함으로써 다른 컴포넌트에서 장바구니 아이템 정보에 접근할 수 있게되고, 추후 추가 기능 구현 필요시 코드의 수정을 용이하게 함
+    ```

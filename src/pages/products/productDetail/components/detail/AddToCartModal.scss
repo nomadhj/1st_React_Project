@@ -1,0 +1,40 @@
+@import '../../../../../styles/variables.scss';
+
+.addToCartModal {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(76, 76, 76, 0.7);
+  z-index: 200;
+
+  .cartModalContainer {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    display: inline-block;
+    transform: translate(-50%, -80%);
+    min-width: 20.62rem;
+    padding: 3.12rem 1.31rem 1.87rem 1.31rem;
+    background-color: white;
+    border-radius: 0.5rem;
+
+    .cartTitle {
+      margin-bottom: 1.87rem;
+      text-align: center;
+    }
+
+    .buttonArea {
+      display: flex;
+      justify-content: space-evenly;
+
+      .confirm {
+        padding: 0.62rem 3.25rem;
+        background-color: $primaryColor;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}

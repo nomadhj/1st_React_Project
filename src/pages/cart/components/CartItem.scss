@@ -1,0 +1,128 @@
+@import '../../../styles/variables.scss';
+
+.cartItem {
+  @include flexCenter;
+  border-bottom: $border;
+  width: 55vw;
+  height: 9.25rem;
+  padding: 1.25rem 0.5rem;
+
+  .checkBoxWrapper {
+    margin: 1.25rem 0 auto 0;
+
+    input {
+      display: none;
+
+      &:checked + label {
+        div {
+          background-color: $primaryColor;
+        }
+      }
+    }
+  }
+
+  input + label {
+    display: flex;
+    align-items: flex-start;
+
+    div {
+      @include flexCenter;
+      justify-content: center;
+      width: 1.375rem;
+      height: 1.375rem;
+      margin-right: 0.625rem;
+      border: $border;
+      border-radius: 0.2rem;
+      background-color: $bgWhite;
+      vertical-align: middle;
+    }
+  }
+
+  .itemInfo {
+    @include flexCenter;
+    justify-content: flex-start;
+    flex: 0.45;
+
+    img {
+      width: 6rem;
+      height: 6.75rem;
+    }
+
+    .itemInfoText {
+      padding-left: 1.875rem;
+
+      a {
+        color: $textBlack;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .countPrice {
+    @include flexSpaceBetween;
+    align-items: center;
+    flex: 0.35;
+
+    .countButtonWrapper {
+      @include flexCenter;
+      border: $border;
+      border-radius: 0.2rem;
+
+      input {
+        width: 2.875rem;
+        height: 2.5rem;
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      button {
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: transparent;
+        border: none;
+        color: $textGray;
+        font-size: 1.2rem;
+        cursor: pointer;
+
+        &:disabled {
+          cursor: auto;
+        }
+      }
+
+      input {
+        border: none;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      input[type='number'] {
+        -moz-appearance: textfield;
+      }
+    }
+
+    p {
+      font-weight: $fontBold;
+    }
+  }
+
+  .purchaseButtonWrapper {
+    display: flex;
+    justify-content: flex-end;
+    flex: 0.2;
+
+    button {
+      width: 7.5rem;
+      height: 2rem;
+      border: $border;
+      border-radius: 0.2rem;
+      background-color: transparent;
+      color: $textBlack;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+  }
+}

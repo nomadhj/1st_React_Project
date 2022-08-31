@@ -1,0 +1,83 @@
+{
+  "1": {
+    "id": 1,
+    "img": "/images/cartItemListImg/001.png",
+    "name": "영귤섬 아이스티",
+    "price": 13000,
+    "novel": true,
+    "sale": false,
+    "salePercent": ""
+  },
+  "2": {
+    "id": 2,
+    "img": "/images/cartItemListImg/002.png",
+    "name": "프리미엄 티 컬렉션",
+    "price": 28000,
+    "novel": false,
+    "sale": true,
+    "salePercent": 15
+  },
+  "3": {
+    "id": 3,
+    "img": "/images/cartItemListImg/003.png",
+    "name": "러블리 티 박스",
+    "price": 20000,
+    "novel": false,
+    "sale": false,
+    "salePercent": ""
+  },
+  "4": {
+    "id": 4,
+    "img": "/images/cartItemListImg/004.png",
+    "name": "제주 동백꽃 티",
+    "price": 9500,
+    "novel": false,
+    "sale": true,
+    "salePercent": 10
+  },
+  "5": {
+    "id": 5,
+    "img": "/images/cartItemListImg/005.png",
+    "name": "산호섬 아이스티",
+    "price": 13000,
+    "novel": false,
+    "sale": true,
+    "salePercent": 15
+  },
+  "6": {
+    "id": 6,
+    "img": "/images/cartItemListImg/006.png",
+    "name": "일로향 60g",
+    "price": 170000,
+    "novel": false,
+    "sale": true,
+    "salePercent": 15
+  },
+  "7": {
+    "id": 7,
+    "img": "/images/cartItemListImg/007.png",
+    "name": "홍우전 60g",
+    "price": 90000,
+    "novel": false,
+    "sale": true,
+    "salePercent": 15
+  },
+  "8": {
+    "id": 8,
+    "img": "/images/cartItemListImg/008.png",
+    "name": "달빛걷기 20입",
+    "price": 23000,
+    "novel": false,
+    "sale": true,
+    "salePercent": 15
+  },
+  "9": {
+    "id": 9,
+    "img": "/images/cartItemListImg/009.png",
+    "name": "제주숲홍차 80g",
+    "price": 40000,
+    "novel": false,
+    "sale": true,
+    "salePercent": 15
+  }
+}

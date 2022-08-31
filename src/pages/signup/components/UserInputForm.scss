@@ -1,0 +1,89 @@
+@import '../../../styles/variables.scss';
+
+.signupSubmitForm {
+  @include flexColumn;
+  align-items: center;
+
+  input {
+    width: 23.625rem;
+    height: 3rem;
+    margin: 1rem 0;
+    border: $border;
+    border-radius: 0.5rem;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  input.valid {
+    border-color: $secondaryColor;
+  }
+
+  input.invalid {
+    border-color: $accentColor;
+  }
+
+  p.valid {
+    width: 23.625rem;
+    color: $secondaryColor;
+    font-size: 0.875rem;
+    font-weight: $fontBold;
+  }
+
+  p.invalid {
+    width: 23.625rem;
+    color: $accentColor;
+    font-size: 0.875rem;
+    font-weight: $fontBold;
+  }
+
+  .registrationNum {
+    @include flexCenter;
+    width: 23.625rem;
+
+    input {
+      &:first-child {
+        width: 10rem;
+      }
+    }
+
+    span + input {
+      width: 2rem;
+      text-align: center;
+    }
+
+    span {
+      margin: 0 0.5rem;
+    }
+
+    p {
+      margin: 0 0.5rem;
+      letter-spacing: 1rem;
+    }
+  }
+
+  button {
+    width: 23.625rem;
+    height: 3rem;
+    margin: 1rem 0;
+    border: $border;
+    border-radius: 0.5rem;
+    background-color: $primaryColor;
+    color: $bgWhite;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:disabled {
+      background-color: $bgGray;
+      color: $textGray;
+      cursor: auto;
+    }
+  }
+}

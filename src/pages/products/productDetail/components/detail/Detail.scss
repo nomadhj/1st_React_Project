@@ -1,0 +1,258 @@
+@import '../../../../../styles/variables.scss';
+
+$detailIconPaddingTop: 0.81rem;
+
+.detail {
+  padding-top: 12.5rem;
+
+  .detailContainer {
+    max-width: 80rem;
+    margin: 0 auto 7.5rem auto;
+    padding: 0 1.87rem;
+
+    .detailFlex {
+      @include flexSpaceBetween;
+
+      .detailLeft {
+        width: 35rem;
+
+        .itemWrapper {
+          position: relative;
+          padding: 1.87rem 2.68rem 6.87rem 2.68rem;
+          background-color: #f8f9fb;
+
+          .newPro {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: inline-block;
+            padding: 0.18rem 0.12rem;
+            background-color: #a89079;
+            color: white;
+            font-size: 0.87rem;
+          }
+
+          .itemImg {
+            width: 29.56rem;
+            height: 29.56rem;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          .customerBenefit {
+            position: absolute;
+            display: flex;
+            flex-wrap: wrap;
+            width: 34.25rem;
+            margin-left: -1.75rem;
+
+            li {
+              margin-top: 1.37rem;
+
+              span {
+                display: inline-block;
+                width: 10rem;
+              }
+
+              i {
+                margin-right: 0.31rem;
+              }
+            }
+          }
+        }
+      }
+      .detailRight {
+        width: 36.25rem;
+
+        .detailRightTitle {
+          margin-bottom: 0.4rem;
+          font-size: 2.25rem;
+        }
+
+        .detailRightUrlPrice {
+          @include flexSpaceBetween;
+          align-items: flex-end;
+          padding-bottom: 1.06rem;
+          margin-top: 0.62rem;
+          border-bottom: $border;
+
+          .urlBox {
+            @include flexCenter;
+            @mixin linkBtn {
+              width: 2.75rem;
+              height: 2.75rem;
+              margin-right: 0.62rem;
+              background-color: $bgGray;
+              border-radius: 50%;
+              color: $textGray;
+              cursor: pointer;
+            }
+            .url {
+              @include linkBtn;
+              padding-top: $detailIconPaddingTop;
+              padding-left: 0.43rem;
+              font-weight: 600;
+
+              &:hover {
+                background-color: $primaryColor;
+                color: white;
+              }
+            }
+            .fa-facebook-f {
+              @include linkBtn;
+              padding-top: $detailIconPaddingTop;
+              padding-left: 1rem;
+              font-size: 1.12rem;
+
+              &:hover {
+                background-color: $primaryColor;
+                color: white;
+              }
+            }
+
+            .fa-instagram {
+              @include linkBtn;
+              padding-top: 0.62rem;
+              padding-left: 0.75rem;
+              font-size: 1.43rem;
+
+              &:hover {
+                background-color: $primaryColor;
+                color: white;
+              }
+            }
+            .fa-heart {
+              @include linkBtn;
+              padding-top: $detailIconPaddingTop;
+              padding-left: 0.75rem;
+              font-size: 1.25rem;
+
+              &:hover {
+                background-color: $primaryColor;
+                color: white;
+              }
+            }
+          }
+          .priceBox {
+            font-size: 1.75rem;
+
+            .originalPrice {
+              margin-bottom: 0.81rem;
+              color: $textGray;
+              text-decoration: line-through;
+              font-size: 1.25rem;
+              text-align: end;
+            }
+
+            .salePriceBox {
+              margin-bottom: 0.31rem;
+
+              .salePrice {
+                margin-right: 0.62rem;
+              }
+
+              .saleRate {
+                color: #fd5c5c;
+              }
+            }
+
+            .wonColor {
+              color: $textGray;
+            }
+          }
+        }
+        .selectItem {
+          padding: 0.62rem;
+          margin-top: 5rem;
+          background-color: #f8f9fb;
+          border: $border;
+          border-radius: 0.18rem;
+
+          .itemQuantityContainer {
+            @include flexSpaceBetween;
+            align-items: center;
+            padding: 1.25rem 0;
+
+            p {
+              margin-left: 0.87rem;
+              font-size: 1.12rem;
+            }
+
+            .quantityBox {
+              font-size: 1.5rem;
+
+              button {
+                border: none;
+                background-color: transparent;
+                font-size: 1.5rem;
+              }
+            }
+          }
+
+          .itemPackage {
+            padding: 1.25rem;
+            background-color: #f2f4f7;
+          }
+        }
+
+        .totalPrice {
+          @include flexSpaceBetween;
+          align-items: flex-end;
+          margin-top: 5rem;
+          color: $primaryColor;
+
+          .totalPriceTitle {
+            font-size: 1.5rem;
+          }
+
+          .totalPriceNum {
+            strong {
+              font-size: 2.87rem;
+            }
+            font-size: 1.5rem;
+          }
+        }
+
+        .paymentBtnArea {
+          margin: 1.25rem 0;
+
+          .paymentBtnContainer {
+            display: flex;
+
+            .presentBtn {
+              padding: 1rem 1.76rem;
+              margin-right: 0.31rem;
+              border: $border;
+              border-color: black;
+              background-color: transparent;
+              font-size: 1.25rem;
+              cursor: pointer;
+            }
+
+            .cartBtn {
+              padding: 0.93rem 2.18rem;
+              border: $border;
+              border-color: black;
+              color: white;
+              background-color: black;
+              font-size: 1.25rem;
+              cursor: pointer;
+            }
+            .buyNowBtn {
+              padding: 0.93rem 6.25rem;
+              border: $border;
+              border-color: $primaryColor;
+              color: white;
+              background-color: $primaryColor;
+              font-size: 1.25rem;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+@import '../../../styles/variables.scss';
+
+.productListBox {
+  position: relative;
+  overflow: hidden;
+
+  .productSlide {
+    display: flex;
+    height: 400px;
+    padding-top: 55px;
+
+    .slideWrapper {
+      .swiperSlide {
+        width: 224px;
+        margin-right: 20px;
+
+        .productThumb {
+          display: block;
+          max-width: 100%;
+          margin-right: 20px;
+        }
+        .productText {
+          margin-top: 15px;
+          margin-left: 0;
+
+          .productInfo {
+            .productName {
+              font-size: 16px;
+            }
+
+            .productPrice {
+              margin-top: 12px;
+
+              .saleBox {
+                .salePercent {
+                  font-weight: 600;
+                  color: $primaryColor;
+                  margin-left: 5px;
+                  line-height: 1;
+                }
+                .priceBox {
+                  padding-top: 10px;
+                  display: flex;
+                  align-items: center;
+                }
+              }
+            }
+          }
+          .prdTag {
+            background-color: #a89079;
+            height: 22px;
+            width: 60px;
+            line-height: 22px;
+            padding: 0 9px;
+            margin-top: 10px;
+            font-size: 13px;
+            border-radius: 4px;
+            color: $bgWhite;
+            font-weight: 600;
+          }
+          .disprdTag {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .move {
+    .moveNext {
+      position: absolute;
+      top: 40%;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      margin: 0;
+      padding: 5px;
+      border-radius: 4px;
+      color: rgb(214, 214, 214);
+      &:hover {
+        background-color: rgba(61, 61, 61, 0.432);
+      }
+    }
+
+    .movePrev {
+      position: absolute;
+      top: 40%;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      margin: 0;
+      padding: 5px;
+      border-radius: 4px;
+      color: rgb(214, 214, 214);
+      &:hover {
+        background-color: rgba(61, 61, 61, 0.432);
+      }
+    }
+  }
+
+  .cardActiveAnim {
+    opacity: 1;
+  }
+
+  .btnSlide {
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: 1px solid transparent;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+      width: 25px;
+      height: 25px;
+      pointer-events: none;
+    }
+  }
+}

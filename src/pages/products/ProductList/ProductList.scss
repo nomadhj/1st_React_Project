@@ -1,0 +1,233 @@
+@import '../../../styles/variables.scss';
+
+@import url('https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css');
+
+.productHeader {
+  background-color: #000;
+
+  .headerCarousel {
+    width: 220rem;
+    height: 27rem;
+    overflow: hidden;
+
+    .slidesWrapper {
+      margin: auto;
+      position: relative;
+      left: 13%;
+      transition: 1s ease-in-out all;
+
+      .slideItem {
+        width: 55rem;
+        height: 27rem;
+        padding-right: 2.7rem;
+        position: relative;
+        float: left;
+        color: $bgWhite;
+
+        .slideCoverImage {
+          position: absolute;
+          top: 0;
+          object-fit: cover;
+          width: 100%;
+          z-index: -1;
+        }
+
+        .slideTextBox {
+          height: 22rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          text-align: right;
+
+          .slideName {
+            margin-bottom: 1rem;
+            font-family: 'MaruBuriSemiBold';
+            font-size: 2rem;
+          }
+
+          .slideContent {
+            font-size: 1.125rem;
+
+            &:last-child {
+              margin-top: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .slideButtonsWrapper {
+    max-width: 100%;
+    padding: 0 9.25rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    background-color: #000000;
+
+    .slideButton {
+      float: left;
+      width: 25%;
+      color: $textGray;
+      font-size: 1.25rem;
+      text-align: center;
+      padding: 1.5rem 0;
+      background-color: #000000;
+      border: none;
+      cursor: pointer;
+    }
+
+    .actived {
+      float: left;
+      width: 25%;
+      color: $bgWhite;
+      font-size: 1.25rem;
+      font-weight: $fontBold;
+      text-align: center;
+      padding: 1.5rem 0;
+      background-color: #000000;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.productContentsWrapper {
+  @include flexSpaceBetween;
+
+  max-width: 70rem;
+  margin: auto;
+
+  .productCategoryOption {
+    float: left;
+    font-size: 1.25rem;
+
+    span {
+      margin-bottom: 2rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    ul {
+      li {
+        margin: 0 0 1.275rem 0.5rem;
+
+        .activedCategoryButton {
+          color: $primaryColor;
+          font-size: 1.125rem;
+          font-weight: $fontBold;
+          border: 0;
+          background-color: transparent;
+          cursor: pointer;
+        }
+
+        .categoryButton {
+          color: $textBlack;
+          font-size: 1.125rem;
+          border: 0;
+          background-color: transparent;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .contentWrapper {
+    width: 55rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rem;
+
+    .sortTabs {
+      @include flexSpaceBetween;
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      font-size: 1.25rem;
+      font-weight: 500;
+      border-bottom: $border;
+    }
+
+    .productNumberText {
+      display: block;
+      margin-bottom: 3rem;
+    }
+
+    .productList {
+      position: relative;
+      margin-bottom: 3rem;
+
+      .product {
+        position: relative;
+        float: left;
+        padding-right: 1.3%;
+        padding-left: 1.3%;
+        width: 25%;
+        border-right: $border;
+
+        &:nth-child(4n) {
+          margin-right: 0;
+          border-right: none;
+        }
+
+        button {
+          border: 0;
+          background-color: transparent;
+          cursor: pointer;
+
+          .productImageBox {
+            height: 14.375rem;
+            display: flex;
+            text-align: center;
+
+            .productImage {
+              height: 14rem;
+              overflow: hidden;
+              width: 100%;
+              object-fit: cover;
+            }
+
+            span {
+              position: absolute;
+              top: 0;
+              padding: 0.5rem 0.75rem;
+              color: $bgWhite;
+              font-size: 0.875rem;
+              background-color: $textBlack;
+            }
+          }
+        }
+
+        .productTextBox {
+          height: 7.25rem;
+          margin-top: 1.5rem;
+          font-size: 1rem;
+          text-align: left;
+
+          p {
+            margin-bottom: 0.25rem;
+
+            &:first-child {
+              height: 48px;
+            }
+
+            &:last-child {
+              margin-left: 0.25rem;
+              font-weight: $fontBold;
+            }
+          }
+        }
+      }
+    }
+    .paginationButtons {
+      margin: 0 0 3rem 0;
+      text-align: center;
+
+      .pageButton {
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 0;
+        border-radius: 1.75rem;
+        margin: 0 0.5rem;
+      }
+    }
+  }
+}

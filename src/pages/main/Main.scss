@@ -1,0 +1,607 @@
+@import '../../styles/variables.scss';
+
+@keyframes autoScrolling {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: -68px;
+  }
+}
+@keyframes autoScrollings {
+  from {
+    top: 500px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+.main {
+  .homeContainer {
+    padding: 0;
+  }
+  .mainBanner {
+    width: 100%;
+    .imgBox {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+    .alignBox {
+      position: absolute;
+      top: 190px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 1320px;
+      width: 70%;
+      padding: 0 60px;
+
+      .bannerText {
+        left: 60px;
+        top: 50%;
+        bottom: auto;
+        padding-top: 50px;
+
+        .topTitle {
+          line-height: 1.33;
+          letter-spacing: -0.04em;
+          color: black;
+          font-size: 36px;
+          font-weight: $fontBold;
+        }
+
+        .textDetail {
+          margin-top: 15px;
+          font-size: 16px;
+          color: $textBlack;
+        }
+        .eventDate {
+          margin-top: 15px;
+          margin-bottom: 10px;
+          font-size: 14px;
+          color: $textBlack;
+          font-weight: $fontBold;
+        }
+      }
+    }
+  }
+
+  .notificationInfo {
+    position: relative;
+    max-width: 1240px;
+    padding: 0 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .notification {
+      position: relative;
+      @include flexCenter;
+      padding: 14px 16px;
+      margin-top: 50px;
+      margin-bottom: 30px;
+      background-color: $bgGray;
+      span {
+        color: $textBlack;
+        font-weight: bold;
+        font-size: 13px;
+        border-right: solid #e3e3e3 1px;
+        padding-right: 15px;
+        margin-right: 11px;
+      }
+      .scrollContainer {
+        height: 18px;
+        width: 350px;
+        overflow: hidden;
+        ul {
+          height: 18px;
+          width: 350px;
+          transition: opacity 1s ease-out;
+          animation: autoScrolling 6s linear infinite;
+          li {
+            font-weight: $fontRegular;
+            color: #67625d;
+            font-size: 12px;
+            height: 16px;
+            width: 350px;
+            margin: 1px 0;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    button {
+      position: absolute;
+      height: 20px;
+      top: 15px;
+      right: 40px;
+      background-color: transparent;
+      border: none;
+      color: $textGray;
+      font-size: 15px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .mainProductList {
+    max-width: 1240px;
+    padding: 0 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 48px;
+
+    .titleBox {
+      display: flex;
+      align-items: center;
+
+      .sectionTitle {
+        .productText {
+          font-size: 30px;
+          font-weight: 600;
+        }
+      }
+      .productTab {
+        display: flex;
+        .tabItem {
+          height: 36px;
+          line-height: 36px;
+          padding: 0 16px;
+          font-size: 14px;
+          color: #999;
+          background-color: #f6f6f6;
+          border-radius: 150px;
+          text-align: center;
+          margin-left: 8px;
+          cursor: pointer;
+        }
+        .tabItemOn {
+          height: 36px;
+          line-height: 36px;
+          padding: 0 16px;
+          font-size: 14px;
+          color: $bgWhite;
+          background-color: $primaryColor;
+          border-radius: 150px;
+          text-align: center;
+          margin-left: 8px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .productBtn {
+      margin-top: 48px;
+      padding-right: 0;
+      text-align: center;
+
+      .btnA {
+        width: auto;
+        padding: 0 60px;
+        height: 48px;
+        line-height: 48px;
+        font-size: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        color: #666;
+        background-color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .mainBanner {
+    .bannerCollection {
+      display: flex;
+      justify-content: center;
+      margin-top: 80px;
+      padding: 80px 0;
+      background-color: #f6f6f6;
+      .banner {
+        padding: 0 20px;
+        .bannerFlexBox {
+          display: flex;
+          justify-content: space-between;
+          max-width: 1240px;
+          padding: 0 20px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 48px;
+
+          .contentBox1 {
+            flex: 0 0 50%;
+            width: 50%;
+
+            .bannerImg {
+              position: relative;
+
+              img {
+                width: 100%;
+                height: 545px;
+              }
+
+              .textBox {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                .innerBanner {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  width: 100%;
+                  height: 100%;
+                  .bannerTitle {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background: linear-gradient(
+                      to bottom,
+                      rgba(0, 0, 0, 0.25),
+                      transparent
+                    );
+                    padding: 20px 30px;
+
+                    .leftText {
+                      font-size: 28px;
+                      color: #fff;
+                      font-weight: 700;
+                    }
+                    .rightText {
+                      font-size: 28px;
+                      color: rgba(255, 255, 255, 0.8);
+                      font-weight: 700;
+                      display: flex;
+                      align-items: center;
+                      letter-spacing: -0.05em;
+                    }
+                  }
+                  .banProductInfo {
+                    padding: 0 30px 30px 30px;
+                    background: linear-gradient(
+                      to top,
+                      rgba(0, 0, 0, 0.35),
+                      transparent
+                    );
+                    .productName {
+                      font-size: 26px;
+                      color: rgba(255, 255, 255, 0.8);
+                      font-weight: 700;
+                      word-break: keep-all;
+                      line-height: 1.38;
+                    }
+                    .banPriceInfo {
+                      display: flex;
+                      align-items: center;
+                      margin-top: 10px;
+                      .salePercent {
+                        width: 64px;
+                        height: 64px;
+                        font-size: 24px;
+                        line-height: 64px;
+                        border-radius: 100%;
+                        background-color: #fd5c5c;
+                        text-align: center;
+                        font-weight: 500;
+                        color: #fff;
+                      }
+                      .priceOrigin {
+                        font-size: 18px;
+                        margin-left: 16px;
+                        color: rgba(255, 255, 255, 0.5);
+                        text-decoration: line-through;
+                      }
+                      .priceResult {
+                        font-size: 30px;
+                        margin-left: 12px;
+                        color: #fff;
+                        font-weight: 700;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .contentBox2 {
+            flex: 0 0 48.33%;
+            width: 48.33%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .bannerImg {
+              position: relative;
+
+              img {
+                width: 100%;
+                height: 100%;
+              }
+              .textBox {
+                position: absolute;
+                top: 50%;
+                left: 40px;
+                transform: translateY(-50%);
+
+                .text01 {
+                  font-size: 26px;
+                  font-weight: 500;
+                }
+                .dateInfo {
+                  display: flex;
+                  align-items: center;
+                  margin-top: 12px;
+
+                  .text02 {
+                    font-size: 14px;
+                    color: #666;
+                  }
+                  .ddayTag {
+                    display: inline-block;
+                    margin-left: 5px;
+                    margin-top: 0;
+                    line-height: 17px;
+                    color: #fff;
+                    background-color: #6c801a;
+                    font-size: 14px;
+                    font-weight: 500;
+                    border-radius: 2px;
+                    padding: 0 10px;
+                    height: 17px;
+                  }
+                }
+              }
+            }
+            .contentBoxItemDepth {
+              .bannerImg {
+                position: relative;
+
+                img {
+                  width: 100%;
+                }
+                .textBox {
+                  position: absolute;
+                  top: 50%;
+                  transform: translateY(-50%);
+
+                  .text01 {
+                    font-size: 18px;
+                    color: rgba(255, 255, 255, 0.7);
+                  }
+                  .text02 {
+                    color: #fff;
+                    font-weight: 500;
+                    margin-top: 10px;
+                    font-size: 26px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .subscribe {
+    .subscribeBox1 {
+      margin-top: 80px;
+      margin-bottom: 60px;
+      .text01 {
+        font-size: 30px;
+      }
+      .subscribetitle {
+        max-width: 1240px;
+        padding: 0 10px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 30px;
+        .text01 {
+          font-size: 28px;
+          font-weight: 600;
+        }
+        .text02 {
+          margin-top: 10px;
+          font-size: 16px;
+          color: #999;
+        }
+      }
+    }
+    .subsBox {
+      display: flex;
+      max-width: 1240px;
+      margin-left: auto;
+      margin-right: auto;
+
+      .subscribeBox2 {
+        display: flex;
+        padding: 0 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+        .subsList {
+          margin-top: 30px;
+          margin-right: 20px;
+          .subsSwiperContainer {
+            overflow: hidden;
+            .swiperWrapper {
+              .swiperSlide {
+                position: relative;
+                width: 400px;
+                height: 550px;
+                .imgBox2 {
+                  .hoverBox {
+                    opacity: 0;
+                  }
+                  &:hover .hoverBox {
+                    opacity: 1;
+                    position: absolute;
+                    width: 100%;
+                    padding: 0 30px 40px;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    transition: 0.5s ease-in-out;
+                    animation: autoScrollings 0.5s linear;
+                    z-index: 100;
+                  }
+                  .subsImg {
+                    width: 100%;
+                  }
+                }
+
+                .descriptionBox {
+                  position: absolute;
+                  width: 100%;
+                  top: 78%;
+                  padding-left: 20px;
+                  padding-bottom: 50px;
+                  margin-top: 15px;
+                  color: #fff;
+                  background: linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.54),
+                    transparent
+                  );
+
+                  .banTitle {
+                    font-size: 22px;
+                    font-weight: 600;
+                  }
+                  .flexBox {
+                    display: flex;
+                    align-items: center;
+                    padding-top: 13px;
+
+                    .priceText {
+                      .subDate {
+                        font-size: 13px;
+                        font-weight: 500;
+                      }
+                      .price {
+                        font-size: 22px;
+                        font-weight: 500;
+                        margin-left: 5px;
+                      }
+                    }
+                    .tag {
+                      width: 80px;
+                      font-size: 13px;
+                      margin-top: 0;
+                      margin-left: 16px;
+                      height: 22px;
+                      line-height: 22px;
+                      text-align: center;
+                      color: #fff;
+                      font-weight: 500;
+                      background-color: $secondaryColor;
+                      border-radius: 2px;
+                    }
+                  }
+                }
+                .hoverBox {
+                  position: absolute;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  padding: 0 30px 40px;
+                  background-color: rgba(0, 0, 0, 0.5);
+                  transition: 0.4s ease-in-out;
+                  display: block;
+                  cursor: pointer;
+
+                  .inner {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    width: 100%;
+                    height: 85%;
+                    color: $bgWhite;
+                    .descriptionBox02 {
+                      .banContainer {
+                        p.text {
+                          padding-top: 10px;
+                          padding-bottom: 30px;
+                          color: $bgWhite;
+                        }
+                      }
+
+                      .imgBoxinner {
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 0;
+                        background-color: black;
+                        opacity: 0.5;
+                        z-index: 100;
+                        transition: 0.3s all ease-in;
+                      }
+
+                      .banTitle {
+                        font-size: 20px;
+                        padding-bottom: 10px;
+                        font-weight: 600n;
+                      }
+                      .flexBox {
+                        display: flex;
+                        align-items: center;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        .priceText {
+                          display: flex;
+                          align-items: center;
+                          .subDate {
+                            font-size: 13px;
+                            font-weight: 500;
+                          }
+                          .price {
+                            font-size: 22px;
+                            font-weight: 500;
+                            margin-left: 5px;
+                          }
+                        }
+                        .tag {
+                          width: 80px;
+                          font-size: 13px;
+                          margin-top: 0;
+                          margin-left: 16px;
+                          height: 22px;
+                          line-height: 22px;
+                          text-align: center;
+                          color: #fff;
+                          font-weight: 500;
+                          background-color: $secondaryColor;
+                          border-radius: 2px;
+                        }
+                      }
+
+                      .banContainer {
+                        border-top: 1px solid rgba(255, 255, 255, 0.5);
+                        padding-top: 20px;
+                        .text {
+                          font-size: 16px;
+                          word-break: keep-all;
+                          color: $bgWhite;
+                        }
+                        .textList {
+                          padding-top: 15px;
+                          padding-left: 20px;
+                          color: $bgWhite;
+                          list-style: circle;
+
+                          li {
+                            padding-bottom: 5px;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

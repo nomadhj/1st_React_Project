@@ -1,0 +1,142 @@
+@import '../../../styles/variables.scss';
+
+.terms {
+  section {
+    @include flexColumn;
+    align-items: center;
+    width: 32rem;
+    border: $border;
+    border-radius: 0.2rem;
+    margin-right: 2.5rem;
+
+    .title {
+      @include flexSpaceBetween;
+      width: 23.625rem;
+      height: 8rem;
+      padding-top: 1rem;
+
+      .iconWrapper {
+        @include flexColumn;
+        justify-content: center;
+
+        i {
+          font-size: 3.5rem;
+        }
+      }
+
+      .textWrapper {
+        @include flexColumn;
+        justify-content: center;
+        width: 18.875rem;
+
+        p {
+          &:first-child {
+            color: $textBlack;
+            font-size: 1.5rem;
+            font-weight: $fontBold;
+          }
+
+          &:last-child {
+            color: $textGray;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    .content {
+      margin-bottom: 3rem;
+
+      .agreeAll {
+        @include flexCenter;
+        width: 23.625rem;
+        height: 2.813rem;
+        border-top: $border;
+
+        input {
+          display: none;
+
+          &:checked + label {
+            div {
+              background-color: $primaryColor;
+            }
+          }
+        }
+
+        input + label {
+          @include flexCenter;
+          color: $textBlack;
+          font-size: 1.25rem;
+          font-weight: $fontBold;
+          cursor: pointer;
+
+          div {
+            @include flexCenter;
+            justify-content: center;
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-right: 0.625rem;
+            border: $border;
+            border-radius: 0.2rem;
+            background-color: $bgWhite;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+
+    .scrollSection {
+      width: 23.625rem;
+      height: 18rem;
+      margin-bottom: 1rem;
+      overflow-y: scroll;
+
+      .description {
+        border-bottom: $border;
+
+        .account {
+          @include flexSpaceBetween;
+          align-items: center;
+
+          div {
+            @include flexCenter;
+
+            i {
+              margin-left: 1.375rem;
+              color: $textGray;
+            }
+
+            p {
+              margin: 1rem 0.5rem;
+              font-size: 0.875rem;
+              font-weight: $fontBold;
+            }
+          }
+
+          a {
+            margin-right: 0.5rem;
+            color: $textGray;
+            font-size: 0.813rem;
+            text-decoration: underline;
+          }
+        }
+
+        p {
+          margin: 1rem 1.375rem 1.125rem 1.375rem;
+          line-height: 1rem;
+          font-size: 0.75rem;
+        }
+      }
+
+      div {
+        &:last-child {
+          p {
+            margin: 1rem 1.375rem 1.125rem 1.375rem;
+            font-size: 1rem;
+            font-weight: $fontBold;
+          }
+        }
+      }
+    }
+  }
+}

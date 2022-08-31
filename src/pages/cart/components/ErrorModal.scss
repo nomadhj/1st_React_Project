@@ -1,0 +1,49 @@
+@import '../../../styles/variables.scss';
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(76, 76, 76, 0.7);
+  z-index: 200;
+
+  .errorModal {
+    @include flexCenter;
+    justify-content: center;
+    position: fixed;
+    top: calc(50vh - 5rem);
+    left: calc(50vw - 11.5rem);
+    width: 21rem;
+    height: 10rem;
+    border-radius: 1rem;
+    background-color: $bgWhite;
+    box-shadow: 0 0.125rem 0.5rem $textBlack;
+    z-index: 201;
+
+    div {
+      @include flexColumn;
+
+      p {
+        margin-bottom: 2rem;
+        color: $textBlack;
+        text-align: center;
+        font-size: 0.875rem;
+        font-weight: $fontBold;
+      }
+
+      button {
+        border: $border;
+        border-radius: 0.3rem;
+        width: 15rem;
+        height: 2rem;
+        margin: 0 0.25rem;
+        background-color: $primaryColor;
+        color: $bgWhite;
+        font-weight: $fontBold;
+        cursor: pointer;
+      }
+    }
+  }
+}

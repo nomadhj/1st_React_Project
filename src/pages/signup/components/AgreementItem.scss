@@ -1,0 +1,37 @@
+@import '../../../styles/variables.scss';
+
+.agreementItem {
+  @include flexSpaceBetween;
+  height: 1.313rem;
+  margin: 0.938rem 0;
+
+  input {
+    display: none;
+
+    &:checked + label {
+      i {
+        color: $accentColor;
+      }
+    }
+  }
+
+  input + label {
+    color: $textBlack;
+    font-size: 0.875rem;
+    font-weight: $fontBold;
+    cursor: pointer;
+
+    i {
+      color: $textGray;
+      font-size: 1rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  a {
+    margin-right: 0.5rem;
+    color: $textGray;
+    font-size: 0.813rem;
+    text-decoration: underline;
+  }
+}

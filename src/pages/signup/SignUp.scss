@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+.signup {
+  @include flexCenter;
+  justify-content: center;
+  height: 100vh;
+
+  .signupForm {
+    border: $border;
+    border-radius: 1rem;
+    margin-left: 2.5rem;
+    padding: 2rem 3rem;
+
+    .signupTitle {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: $fontBold;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+$primaryColor: #6c801a;
+$secondaryColor: #a1af1b;
+$accentColor: #fd5c5c;
+
+$textBlack: #333333;
+$textGray: #999;
+
+$bgGray: #f6f6f6;
+$bgWhite: #ffffff;
+
+$border: 1px solid #dddddd;
+
+$fontLight: 200;
+$fontRegular: 400;
+$fontBold: 700;
+
+@mixin flexStart {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@mixin flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flexSpaceAround {
+  display: flex;
+  justify-content: space-around;
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin lineThrough {
+  color: $textGray;
+  text-decoration: line-through;
+  line-height: 1;
+}
