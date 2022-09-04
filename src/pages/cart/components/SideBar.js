@@ -1,22 +1,22 @@
-import { useContext } from 'react';
-import CartContext from '../../../Context/cartContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { cartActions } from '../../../store/cartSlice';
 import './SideBar.scss';
 
 const SideBar = () => {
-  const cartContext = useContext(CartContext);
+  const totalPrice = useSelector(state => state.cart.totalPrice);
+  const dispatch = useDispatch();
 
-  const deliveryCost =
-    cartContext.totalPrice < 30000 ? (cartContext.totalPrice ? 2500 : 0) : 0;
+  const deliveryCost = totalPrice < 30000 ? (totalPrice ? 2500 : 0) : 0;
 
   const orderHandler = event => {
     event.preventDefault();
-    cartContext.orderItems(null, event.target.className);
+    dispatch(cartActions.orderItems(event.target.className));
   };
 
   const priceHandler = title => {
     switch (title) {
       case '상품 금액':
-        return `+${cartContext.totalPrice.toLocaleString('en')}원`;
+        return `+${totalPrice.toLocaleString('en')}원`;
       case '상품 할인':
         return '-0원';
       case '배송비':
@@ -42,14 +42,12 @@ const SideBar = () => {
         <div className="expectedPrice">
           <p>결제 예상 금액</p>
           <p>
-            <span>
-              {(cartContext.totalPrice + deliveryCost).toLocaleString('en')}
-            </span>
+            <span>{(totalPrice + deliveryCost).toLocaleString('en')}</span>
             <span>원</span>
           </p>
         </div>
         <button className="orderSelectedBtn" onClick={orderHandler}>{`${(
-          cartContext.totalPrice + deliveryCost
+          totalPrice + deliveryCost
         ).toLocaleString('en')}원 주문하기`}</button>
       </div>
     </section>

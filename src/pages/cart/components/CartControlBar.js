@@ -1,12 +1,17 @@
-import { useContext } from 'react';
-import CartContext from '../../../Context/cartContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { cartActions } from '../../../store/cartSlice';
 import './CartControlBar.scss';
 
 const CartControlBar = () => {
-  const cartContext = useContext(CartContext);
+  const totalCheckboxisChecked = useSelector(state => state.cart.isCheckAll);
+  const dispatch = useDispatch();
 
   const checkboxHandler = event => {
-    cartContext.totalCheckboxHandler(event.target.checked);
+    dispatch(cartActions.checkAllHandler(event.target.checked));
+  };
+
+  const deleteItemhandler = () => {
+    dispatch(cartActions.deleteItems());
   };
 
   return (
@@ -15,7 +20,7 @@ const CartControlBar = () => {
         <input
           id="checkAll"
           type="checkbox"
-          checked={cartContext.totalCheckboxisChecked}
+          checked={totalCheckboxisChecked}
           onChange={checkboxHandler}
         />
         <label htmlFor="checkAll">
@@ -25,10 +30,7 @@ const CartControlBar = () => {
           전체선택
         </label>
       </div>
-      <button
-        className="selectedItemDeleteBtn"
-        onClick={cartContext.deleteItems}
-      >
+      <button className="selectedItemDeleteBtn" onClick={deleteItemhandler}>
         선택 삭제
       </button>
     </div>

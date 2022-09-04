@@ -1,50 +1,60 @@
-import { useState, useEffect, useContext } from 'react';
-import CartContext from '../../../Context/cartContext';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../../store/cartSlice';
 import './CartItem.scss';
 
 const CartItem = ({ itemList }) => {
   const [isBtnValid, setIsBtnValid] = useState(false);
-  const cartContext = useContext(CartContext);
+  const dispatch = useDispatch();
   const { id, name, price, amount, isChecked } = itemList;
 
   const amountInputHandler = event => {
     if (event.target.value.length >= 3) {
-      cartContext.changeItems(id, 'amount', 99);
-      cartContext.errorMessageHandler('inputValueExceeded');
+      dispatch(cartActions.changeItems({ id: id, key: 'amount', value: 99 }));
+      // todo: 에러 UI 추가
+      // cartContext.errorMessageHandler('inputValueExceeded');
     } else {
       +event.target.value === 0
-        ? cartContext.changeItems(id, 'amount', 1)
-        : cartContext.changeItems(id, 'amount', +event.target.value);
+        ? dispatch(cartActions.changeItems({ id: id, key: 'amount', value: 1 }))
+        : dispatch(
+            cartActions.changeItems({
+              id: id,
+              key: 'amount',
+              value: +event.target.value,
+            })
+          );
     }
   };
 
   const amountIncreaseHandler = event => {
     event.preventDefault();
     if (amount === 99) {
-      cartContext.changeItems(id, 'amount', 99);
-      cartContext.errorMessageHandler('inputValueExceeded');
+      dispatch(cartActions.changeItems({ id: id, key: 'amount', value: 99 }));
+      // todo: 에러 UI 추가
+      // cartContext.errorMessageHandler('inputValueExceeded');
     } else {
-      cartContext.changeItems(id, 'amount', amount + 1);
+      dispatch(
+        cartActions.changeItems({ id: id, key: 'amount', value: amount + 1 })
+      );
     }
   };
 
   const amountDecreaseHandler = event => {
     event.preventDefault();
-    cartContext.changeItems(id, 'amount', amount - 1);
+    dispatch(
+      cartActions.changeItems({ id: id, key: 'amount', value: amount - 1 })
+    );
+  };
+
+  const checkboxHandler = () => {
+    dispatch(
+      cartActions.changeItems({ id: id, key: 'isChecked', value: !isChecked })
+    );
   };
 
   useEffect(() => {
     setIsBtnValid(amount > 1);
   }, [amount]);
-
-  const checkboxHandler = () => {
-    cartContext.changeItems(id, 'isChecked', !isChecked);
-  };
-
-  const orderHandler = event => {
-    event.preventDefault();
-    cartContext.orderItems(id, null);
-  };
 
   return (
     <li className="cartItem">
@@ -78,9 +88,6 @@ const CartItem = ({ itemList }) => {
           </button>
         </div>
         <p>{`${(price * amount).toLocaleString('en')}원`}</p>
-      </div>
-      <div className="purchaseButtonWrapper">
-        <button onClick={orderHandler}>바로구매</button>
       </div>
     </li>
   );

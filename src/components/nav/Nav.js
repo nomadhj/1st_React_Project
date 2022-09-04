@@ -1,13 +1,13 @@
 import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import CartContext from '../../Context/cartContext';
 import AuthContext from '../../Context/authContext';
 import './Nav.scss';
 
 function Nav() {
   const navigate = useNavigate();
-  const cartContext = useContext(CartContext);
   const authContext = useContext(AuthContext);
+  const cartItemList = useSelector(state => state.cart.itemList);
 
   const clickHanlder = () => {
     if (!authContext.isLoggedIn) return;
@@ -38,7 +38,7 @@ function Nav() {
             <li className="item">
               <button className="cartIcon" onClick={clickHanlder}>
                 <i className="fa-solid fa-cart-shopping" />
-                <span className="badge">{cartContext.length}</span>
+                <span className="badge">{cartItemList.length}</span>
               </button>
             </li>
             {!authContext.isLoggedIn && (

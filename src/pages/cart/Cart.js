@@ -1,22 +1,24 @@
-import { useContext } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import CartItemList from './components/CartItemList';
 import Button from '../../components/UI/Button';
 import SideBar from './components/SideBar';
 import FreeGift from './components/FreeGift';
-import ErrorModal from './components/ErrorModal';
-import CartContext from '../../Context/cartContext';
+// import ErrorModal from './components/ErrorModal';
+import { cartActions } from '../../store/cartSlice';
 import './Cart.scss';
 
 const Cart = () => {
-  const cartContext = useContext(CartContext);
+  const totalPrice = useSelector(state => state.cart.totalPrice);
+  const dispatch = useDispatch();
 
   const clickHandler = category => {
-    cartContext.orderItems(category);
+    dispatch(cartActions.orderItems(category));
   };
 
   return (
     <>
-      {cartContext.errorMessage && <ErrorModal />}
+      {/* todo : 에러 UI 구현 */}
+      {/* {cartContext.errorMessage && <ErrorModal />} */}
       <section className="cart">
         <div className="cartPageTitle">
           <div className="cartTitleWrapper">
@@ -26,7 +28,7 @@ const Cart = () => {
         <div className="cartPageContent">
           <section className="orderedItem">
             <CartItemList />
-            {cartContext.totalPrice >= 30000 && <FreeGift />}
+            {totalPrice >= 30000 && <FreeGift />}
             <div className="buttonWrapper">
               <Button btnFunction={clickHandler.bind(null, 'orderSelected')}>
                 선택상품 주문
