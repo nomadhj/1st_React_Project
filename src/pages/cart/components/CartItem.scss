@@ -61,7 +61,7 @@
   .countPrice {
     @include flexSpaceBetween;
     align-items: center;
-    flex: 0.35;
+    flex: 0.45;
 
     .countButtonWrapper {
       @include flexCenter;
@@ -106,23 +106,6 @@
 
     p {
       font-weight: $fontBold;
-    }
-  }
-
-  .purchaseButtonWrapper {
-    display: flex;
-    justify-content: flex-end;
-    flex: 0.2;
-
-    button {
-      width: 7.5rem;
-      height: 2rem;
-      border: $border;
-      border-radius: 0.2rem;
-      background-color: transparent;
-      color: $textBlack;
-      font-size: 0.8rem;
-      cursor: pointer;
     }
   }
 }
