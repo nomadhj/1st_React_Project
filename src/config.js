@@ -1,4 +1,4 @@
-const BASE_URL = 'https://react-project-7ee5d-default-rtdb.firebaseio.com';
+const BASE_URL = 'https://react-project-1c9e2-default-rtdb.firebaseio.com/';
 
 const API = {
   signup: `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_API_KEY}`,
